@@ -5,7 +5,7 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import {Typography, Grid } from '@material-ui/core';
 import {Box} from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import GitHub from '@material-ui/icons';
+import GitHub, { GridOff } from '@material-ui/icons';
 
 function Footer() {
     return (
@@ -38,8 +38,19 @@ function Footer() {
                 </Grid>
             </Grid>
         </>
+    
+    
+
     )
 }
 
 export default Footer;
 // rfce atalho para criar automaticamente a function
+
+
+
+
+
+
+
+

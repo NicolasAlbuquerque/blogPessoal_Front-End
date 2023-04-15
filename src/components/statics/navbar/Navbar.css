@@ -1,5 +1,14 @@
-.navbar{
+.cursor{   
+    cursor: pointer;
+    color: white;
 
-    background-color: aqua;
-    text-align: center;
 }
+.text-decoration-none{
+    text-decoration: none;
+}
+.menu{
+    position: static;
+    background: #000
+}
+
+position="static" style={{background: '#000'}}

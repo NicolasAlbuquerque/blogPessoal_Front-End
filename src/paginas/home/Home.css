@@ -1,0 +1,24 @@
+.caixa{
+    background-color: #101010;
+}
+
+.texto{
+    color: white;
+    
+}
+
+.botão {
+    
+        border-color: black;
+        background-color: #f00;
+        color: white;
+        
+}
+
+.botão :hover {
+    
+    border-color: black !important;
+    background-color: rgb(189, 2, 2) !important; 
+    color: white!important
+    
+} 
