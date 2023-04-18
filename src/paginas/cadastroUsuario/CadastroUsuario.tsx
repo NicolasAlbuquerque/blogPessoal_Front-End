@@ -1,10 +1,77 @@
-import React from 'react'
+import React, { ChangeEvent, useEffect, useState } from 'react'
 import './CadastroUsuario.css'
 import { GridOff } from '@material-ui/icons'
 import { Box, Button, Grid, TextField, Typography } from '@mui/material'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import Usuario from '../../models/User'
+import { cadastroUsuario } from '../../services/Service'
 
 function CadastroUsuario() {
+    
+  const history = useNavigate()
+
+  const [usuario, setUsuario] = useState<Usuario>({
+    id: 0,
+    nome: '',
+    usuario: '',
+    foto: '',
+    senha: ''
+  })
+  
+  const [usuarioResult, setUsuarioResult] = useState<Usuario>({
+    id: 0,
+    nome: '',
+    usuario: '',
+    foto: '',
+    senha: ''
+  })
+
+  const [confirmarSenha,setConfirmarSenha] = useState<String>("")
+  
+  function confirmarSenhaHandle(event: ChangeEvent<HTMLInputElement>){
+    setConfirmarSenha(event.target.value)
+}
+
+  function updateModel(event: ChangeEvent<HTMLInputElement>) {
+    setUsuario({
+      ...usuario,
+      [event.target.name]: event.target.value
+    })
+  }
+
+  async function onSubmit(event: ChangeEvent<HTMLFormElement>){
+    event.preventDefault()
+    if(confirmarSenha === usuario.senha) {
+      try {
+        await cadastroUsuario('/usuarios/cadastrar', usuario, setUsuarioResult) //isso esta na service
+        alert('Usuário cadastrado com sucesso')
+      } catch (error) {
+        alert('Por favor, verifique os campos')
+      }
+    } else {
+      alert('As senhas não coincidem')
+      setConfirmarSenha('')
+      setUsuario({
+        ...usuario,
+        senha: ''
+      })
+    }
+  }
+
+  useEffect(() => {
+    console.log('rodou')
+  }, [usuario.nome])
+
+  useEffect(() => {
+    if(usuarioResult.id !== 0) {
+      history('/login')
+    }
+  }, [usuarioResult])
+
+  function back() {
+    history('/login')
+  }
+
     return (
 
         <Grid container direction='row-reverse' justifyContent='center' alignItems='center' className="fundo" >

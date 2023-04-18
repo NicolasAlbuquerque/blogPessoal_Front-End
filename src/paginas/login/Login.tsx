@@ -2,7 +2,7 @@ import React, {useState, useEffect , ChangeEvent} from "react";
 import './Login.css'
 import { Grid, Box, Typography, TextField, Button} from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
-import UserLogin from "../../models/UserLogin";
+import UsuarioLogin from "../../models/UsuarioLogin";
 import useLocalStorage from 'react-use-localstorage';
 import {  login } from "../../services/Service";
 
@@ -12,7 +12,7 @@ function Login() {
     const history = useNavigate();
     const[token, setToken]= useLocalStorage('token');
 
-    const[userLogin, setUserLogin]= useState<UserLogin>(
+    const[userLogin, setUserLogin]= useState<UsuarioLogin>(
     {
         id: 0,
         usuario:'',
