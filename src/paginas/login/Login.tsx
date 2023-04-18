@@ -2,9 +2,10 @@ import React, {useState, useEffect , ChangeEvent} from "react";
 import './Login.css'
 import { Grid, Box, Typography, TextField, Button} from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
-import UsuarioLogin from "../../models/UsuarioLogin";
+
 import useLocalStorage from 'react-use-localstorage';
 import {  login } from "../../services/Service";
+import UsuarioLogin from "../../models/UsuarioLogin";
 
 
 
@@ -17,7 +18,8 @@ function Login() {
         id: 0,
         usuario:'',
         senha:'' ,
-        token:''
+        token:'',
+        foto:''
     }
 )
 
@@ -75,7 +77,7 @@ function Login() {
                                 Não tem uma conta?
                             </Typography>
                         </Box>
-                        <Link to={"/cadastrousuario"}>
+                        <Link to={"/usuarios/cadastrar"}>
                         <Typography variant="subtitle2" gutterBottom align="center" style={{fontWeight:'bold'}} color={'white'}>
                             Cadastre-se
                         </Typography>

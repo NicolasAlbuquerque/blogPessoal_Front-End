@@ -19,7 +19,7 @@ function Navbar() {
 
             <Box display="flex" justifyContent="start">
               <Box mx={1} className='cursor'>
-               <Link to='/home'> <Typography variant="h6" color="inherit">
+               <Link className='text-decoration-none' to='/home'> <Typography className='text-decoration-none' variant="h6" color="inherit">
                   home
                 </Typography></Link>
               </Box>
@@ -34,7 +34,7 @@ function Navbar() {
                 </Typography></Link>
               </Box>
               <Box mx={1} className='cursor'>
-                <Typography variant="h6" color="inherit">
+                <Typography className='login' variant="h6" color="inherit">
                   cadastrar tema
                 </Typography>
               </Box>
