@@ -8,7 +8,17 @@
 }
 .menu{
     position: static;
-    background: #000
+    justify-content: center;
+    display: flex;
+    background: #000 !important
+;align-content: center;
+}
+.login{
+    color: white !important 
 }
 
-position="static" style={{background: '#000'}}
+.logopequeno{
+    height:5vh ;
+    align-items: center;
+
+}

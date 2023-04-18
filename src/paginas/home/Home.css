@@ -3,22 +3,26 @@
 }
 
 .texto{
-    color: white;
+    color: white !important;
     
 }
 
 .botão {
     
-        border-color: black;
-        background-color: #f00;
-        color: white;
+        border-color: black !important;
+        background-color: #f00 !important   ;
+        color: white !important;
         
 }
 
 .botão :hover {
     
     border-color: black !important;
-    background-color: rgb(189, 2, 2) !important; 
+    background-color: rgb(189, 2, 2) !important ;
     color: white!important
     
 } 
+
+.fundo{
+    background-color: whit !importante;
+}

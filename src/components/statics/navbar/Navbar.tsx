@@ -8,30 +8,30 @@ import { Link } from 'react-router-dom';
 function Navbar() {
   return (
     <>
-      <AppBar position="static" style={{background: '#000'}}>
+      <AppBar position="static" className='menu'>
         <Toolbar variant="dense" >
           <Box display={'flex'} justifyContent={'space-between'} width={'100%'} >
             <Box className='cursor'>
               <Typography variant="h5" color="inherit">
-                BlogPessoal
+                <img className='logopequeno' src="https://i.imgur.com/rFkCI60.png" alt="loguinho"/>
               </Typography>
             </Box>
 
             <Box display="flex" justifyContent="start">
               <Box mx={1} className='cursor'>
-                <Typography variant="h6" color="inherit">
+               <Link to='/home'> <Typography variant="h6" color="inherit">
                   home
-                </Typography>
+                </Typography></Link>
               </Box>
               <Box mx={1} className='cursor'>
-                <Typography variant="h6" color="inherit">
+               <Link to= '/postagens'><Typography variant="h6" color="inherit">
                   postagens
-                </Typography>
+                </Typography></Link> 
               </Box>
               <Box mx={1} className='cursor'>
-                <Typography variant="h6" color="inherit">
+             <Link to='/temas'><Typography variant="h6" color="inherit">
                   temas
-                </Typography>
+                </Typography></Link>
               </Box>
               <Box mx={1} className='cursor'>
                 <Typography variant="h6" color="inherit">
@@ -40,7 +40,7 @@ function Navbar() {
               </Box>
               <Box mx={1}>
                 <Link to='/login'>
-                  <Typography variant="h6" color="inherit" style={{color:'white'}}>
+                  <Typography className='login' variant="h6" color="inherit" >
                     logout
                   </Typography>
                 </Link>

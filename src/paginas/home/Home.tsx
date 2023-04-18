@@ -23,7 +23,7 @@ function Home() {
                 color="textPrimary"
                 component="h3"
                 align="center"
-                style={{ color: "white", fontWeight: "bold" }}
+                className="texto"
             >
                 Seja bem vindo(a)!
             </Typography>
@@ -33,15 +33,14 @@ function Home() {
                 color="textPrimary"
                 component="h5"
                 align="center"
-                style={{ color: "white", fontWeight: "bold" }}
+                className="texto"
             >
                 <img src="" alt="" className="logoBanner"/>
             </Typography>
             </Box>
             <Box display="flex" justifyContent="center">
             <Box marginRight={1}></Box>
-            <Button style={{borderColor: 'black', backgroundColor: '#f00',
-        color: 'white'}}>
+            <Button className="botão" >
                 Ver Postagens
             </Button>
             </Box>
@@ -49,7 +48,7 @@ function Home() {
         <Grid item xs={6}>
             <img src="https://i.imgur.com/DYnbKky.png" alt="fredie"/>
         </Grid>
-        <Grid xs={12} style={{ backgroundColor: "white" }}></Grid>
+        <Grid xs={12} className="fundo" ></Grid>
                 
         </Grid>
     </>
