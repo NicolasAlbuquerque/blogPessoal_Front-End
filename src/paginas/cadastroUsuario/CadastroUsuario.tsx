@@ -4,7 +4,7 @@ import { Box, Button, Grid, TextField, Typography } from '@mui/material'
 import { Link, useNavigate } from 'react-router-dom'
 import Usuario from '../../models/Usuario'
 import { cadastroUsuario } from '../../services/Service'
-import Cadastro from '.';
+
 
 function CadastroUsuario() {
     const history = useNavigate()
@@ -109,7 +109,7 @@ onChange={(event: ChangeEvent<HTMLInputElement>) => updateModel(event)}id= 'senh
                             </Button>
                         
 
-                            <Button type='submit' variant="contained" >
+                            <Button type='submit'  variant="contained" >
                                 Cadastrar
                             </Button>
 

@@ -4,6 +4,7 @@ import { Grid, Box, Typography, Button } from "@mui/material";
 import './Home.css'
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import TabPostagem from "../../components/temas/postagens/tabpostagem/TabPostagem";
 
 function Home() {
     return (
@@ -46,9 +47,11 @@ function Home() {
             </Box>
         </Grid>
         <Grid item xs={6}>
-            <img src="https://i.imgur.com/DYnbKky.png" alt="fredie"/>
+            <img  src="https://i.imgur.com/UBw6mEK.png" alt="fredie"/>
         </Grid>
-        <Grid xs={12} className="fundo" ></Grid>
+        <Grid xs={12} className="fundo" >
+            <TabPostagem />
+        </Grid>
                 
         </Grid>
     </>

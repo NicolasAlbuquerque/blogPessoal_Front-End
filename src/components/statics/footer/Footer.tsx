@@ -14,9 +14,9 @@ function Footer() {
                 <Grid alignItems="center" item xs={12} >
                     <Box style={{ backgroundColor: "#000", height: "11   0px" }}>
                         <Box paddingTop={1} display="flex" alignItems="center" justifyContent="center">
-                            <Typography variant="h5" align="center" gutterBottom style={{ color: "white" }}>Siga-nos nas redes sociais </Typography>
+
                         </Box>
-                        <Box display="flex" alignItems="center" justifyContent="center">
+                        <Box display="flex" alignItems="center" justifyContent="center" paddingTop={3}>
                             <a href="https://www.instagram.com/generationbrasil/" target="_blank">
                                 <GitHubIcon style={{ fontSize: 40, color: "white" }} />
                             </a>
@@ -26,14 +26,13 @@ function Footer() {
                         </Box>
                     </Box>
                     <Box style={{ backgroundColor: "#000", height: "60px" }}>
-                        <Box paddingTop={1}>
-                            <Typography variant="subtitle2" align="center" gutterBottom style={{ color: "white" }} >© 2020 Copyright:</Typography>
+                        <Box paddingTop={1} >
+                        <a target="_blank" href="https://brasil.generation.org">
+                            <Typography variant="subtitle2" align="center" gutterBottom style={{ color: "white" }} >© 2020 Copyright: brasil.generation.org</Typography>
+                        </a>    
                         </Box>
-                        <Box>
-                            <a target="_blank" href="https://brasil.generation.org">
-                                <Typography variant="subtitle2" gutterBottom style={{ color: "white" }} align="center">brasil.generation.org</Typography>
-                            </a>
-                        </Box>
+                      
+                     
                     </Box>
                 </Grid>
             </Grid>

@@ -12,13 +12,14 @@
     display: flex;
     background: #000 !important
 ;align-content: center;
+
 }
 .login{
     color: white !important 
 }
 
 .logopequeno{
-    height:5vh ;
-    align-items: center;
+    height:6vh ;
+    display: flex;
 
 }
