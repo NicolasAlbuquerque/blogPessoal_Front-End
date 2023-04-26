@@ -46,9 +46,11 @@ function Navbar() {
                 </Typography></Link>
               </Box>
               <Box mx={1} className='cursor login'>
+                <Link to='/formularioTema'>
                 <Typography className='login' variant="h6" color="inherit">
                   cadastrar tema
                 </Typography>
+                </Link>
               </Box>
               <Box mx={1}>
                 
