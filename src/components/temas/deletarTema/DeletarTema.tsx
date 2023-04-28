@@ -4,7 +4,7 @@ import React, { ChangeEvent, useEffect, useState } from 'react'
 import Tema from '../../../models/Tema';
 import useLocalStorage from 'react-use-localstorage';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
-import { buscaId } from '../../../services/Service';
+import { buscaId, deletarId } from '../../../services/Service';
 
 function DeletarTema() {
     const history = useNavigate();
@@ -26,16 +26,27 @@ function DeletarTema() {
     }, [id])
 
     async function findById(id:string){
-        buscaId(`/tema/${id}`,setTema,{
+        buscaId(`/temas/${id}`,setTema,{
             headers:{
                 'Authorization':token
             }
         })
     }
 
+    function sim (){
+      history('/temas')
+      deletarId (`/temas/${id}`,{
+        headers:{
+          'Authorization': token
+        }
+      });
+      alert('Tema Deletado com sucesso!')
+    }
 
-   
-
+    function não(){
+      history('/temas')
+    } 
+    
 
   return (
     <>
@@ -47,19 +58,21 @@ function DeletarTema() {
               Deseja deletar o Tema:
             </Typography>
             <Typography color="textSecondary">
-              tema
+              {/* este é meu state. */}
+              {tema?.descricao}
             </Typography>
           </Box>
         </CardContent>
         <CardActions>
           <Box display="flex" justifyContent="start" ml={1.0} mb={2} >
             <Box mx={2}>
-              <Button variant="contained" className="marginLeft" size='large' color="primary">
+              <Button onClick={sim} variant="contained" className="marginLeft" size='large' color="primary">
                 Sim
               </Button>
             </Box>
             <Box mx={2}>
-              <Button variant="contained" size='large' color="secondary">
+              <Button  
+              onClick={não} variant="contained" size='large' color="secondary">
                 Não
               </Button>
             </Box>

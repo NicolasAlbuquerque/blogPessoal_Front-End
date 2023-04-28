@@ -1,8 +1,56 @@
 import { Card, CardContent, Typography, CardActions, Button } from '@material-ui/core'
 import { Box } from '@mui/material'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom';
+import useLocalStorage from 'react-use-localstorage';
+import Postagem from '../../../../models/Postagem';
+import { buscaId, deletarId } from '../../../../services/Service';
 
 function DeletarPost() {
+
+ const history = useNavigate();
+    const {id} = useParams<{id: string}>();
+    const [token, setToken] = useLocalStorage('token');
+    const [postagem, setPostagem] = useState<Postagem>()
+
+    useEffect(()=> {
+        if(token ==  ""){
+            alert("Você precisa efetuar o Login")
+            history("/login")
+        }
+    }, [token])
+
+    useEffect(()=> {
+        if(id !== undefined){
+            findById(id)
+        }
+    }, [id])
+
+    async function findById(id:string){
+        buscaId(`/postagens/${id}`,setPostagem,{
+            headers:{
+                'Authorization':token
+            }
+        })
+    }
+
+    function sim (){
+      history('/postagens')
+      deletarId (`/postagens/${id}`,{
+        headers:{
+          'Authorization': token
+        }
+      });
+      alert('Tema Deletado com sucesso!')
+    }
+
+    function não(){
+      history('/temas')
+    } 
+    
+
+
+  
   return (
     <>
     <Box m={2}>

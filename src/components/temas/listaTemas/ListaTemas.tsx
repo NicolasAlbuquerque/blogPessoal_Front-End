@@ -29,17 +29,16 @@ function ListaTema() {
 
   useEffect(()=>{
     getAllTemas()
-  },[temas.length])
+  },[])
 
 
   useEffect(()=>{
     if(token === ''){
       alert('Você precisa estar logado')
     history("/login") 
-  }
+  }})
 
 
-  }, [token])
 
   
 return (

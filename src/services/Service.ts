@@ -5,7 +5,7 @@ export const api=axios.create({baseURL:'https://blogpessoal-ppmf.onrender.com'})
 
 export const cadastroUsuario = async (url: string, dados: Object, setDados: Function) => {
     const resposta = await api.post(url, dados);
-    setDados(resposta.data.token);
+    setDados(resposta.data);
 };
 
 export const login = async (url: string, dados: Object, setDados: Function) => {
@@ -35,13 +35,13 @@ export const post = async (url: string, dados: any, setDados:any , header:any) =
 
 //metodo Put
 export const put = async (url: string, dados: any, setDados:any , header:any) => {
-    const resposta = await api.put(url,dados ,header);
+    const resposta = await api.put(url,dados,header);
     setDados(resposta.data);
 };
 
 //DeleteId
-export const deleteId = async (url: string, header:any) => {
-    await api.put(url,header);
+export const deletarId = async (url: string, header:any) => {
+    await api.delete(url,header);
 };
 
 

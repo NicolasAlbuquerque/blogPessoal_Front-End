@@ -11,7 +11,7 @@ import { buscaId, post, put } from '../../../services/Service';
 
 function CadastroTema() {
     const history= useNavigate();
-    const {id} = useParams<{id: string}>();
+    const {id} = useParams<{id:string}>();
     const [token, setToken] = useLocalStorage('token');
     const [tema, setTema] = useState<Tema>({
         id:0,
@@ -32,7 +32,7 @@ function CadastroTema() {
     }, [id])
 
     async function findById(id:string){
-        buscaId(`/tema/${id}`,setTema,{
+        buscaId(`/temas/${id}`,setTema,{
             headers:{
                 'Authorization':token
             }
@@ -48,22 +48,22 @@ function CadastroTema() {
 
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
-        console.log("tema " + JSON.stringify(tema))
+        console.log("tema" + JSON.stringify(tema))
 
         if (id !== undefined) {
             console.log(tema)
             put(`/temas`, tema, setTema, {
                 headers: {
-                    'Authorization': token
-                }
-            })
-            alert('Tema atualizado com sucesso');
+                    'Authorization': token,
+                },
+            });
+            alert('Tema atualizado com sucesso')
         } else {
             post(`/temas`, tema, setTema, {
                 headers: {
-                    'Authorization': token
-                }
-            })
+                    'Authorization': token,
+                },
+            });
             alert('Tema cadastrado com sucesso');
         }
         back()
