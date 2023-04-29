@@ -8,15 +8,15 @@ width: 100vh;
 min-height:100vh; 
 background-size:cover; 
 background-position:center;
-background-color: #101010;
+background-color: #101010 !important;
 
 }
 
 .fundo{
-    background-color: #101010;
+    background-color: #101010 !important;
 }
 .forms{
-    background-color: #ffffff;
+    background-color: #ffffff !important;
     margin:10%;
     border-radius: 5%;
     padding: 5%;

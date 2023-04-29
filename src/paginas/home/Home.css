@@ -8,7 +8,6 @@
 }
 
 .botão {
-    
         border-color: black !important;
         background-color: #f00 !important   ;
         color: white !important;
@@ -24,5 +23,5 @@
 } 
 
 .fundo{
-    background-color: whit !importante;
+    background-color: white !important;
 }

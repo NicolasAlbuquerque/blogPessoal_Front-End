@@ -1,12 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ResponsiveAppBar from "../../components/statics/navbar/Navbar";
 import { Grid, Box, Typography, Button } from "@mui/material";
 import './Home.css'
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import TabPostagem from "../../components/temas/postagens/tabpostagem/TabPostagem";
+import ModalPostagem from "../../components/temas/postagens/modalPostagem/ModalPostagem";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { TokenState } from "../../store/tokens/tokensReducer";
 
 function Home() {
+    const history = useNavigate();
+    const token = useSelector<TokenState, TokenState['tokens']>(
+    (state) => state.tokens
+    );
+
+
+    useEffect(()=> {
+        if(token ==  ""){
+            alert("Você precisa efetuar o Login")
+            history("/login")
+        }
+    }, [token])
+
     return (
     <>
         <Grid
@@ -40,10 +57,14 @@ function Home() {
             </Typography>
             </Box>
             <Box display="flex" justifyContent="center">
-            <Box marginRight={1}></Box>
+            <Box marginRight={1}>
+            <Link to ='/postagens'>
             <Button className="botão" >
                 Ver Postagens
             </Button>
+            </Link>
+            </Box>
+            <ModalPostagem/>
             </Box>
         </Grid>
         <Grid item xs={6}>

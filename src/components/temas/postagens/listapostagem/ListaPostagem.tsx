@@ -3,18 +3,21 @@ import { Link, useNavigate } from 'react-router-dom'
 
 import {Card, CardContent, Typography, CardActions, Button } from '@material-ui/core';
 import { Box } from '@mui/material';
-import useLocalStorage from 'react-use-localstorage';
+
 import Postagem from '../../../../models/Postagem';
 import { busca } from '../../../../services/Service';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../../store/tokens/tokensReducer';
 function ListaPostagem() {
 
 
   const [postagens, setPostagens]= useState <Postagem[]>([])
-  const [token, setToken]= useLocalStorage('token');
-  
-  
   const history =useNavigate();
 
+  const token = useSelector<TokenState, TokenState['tokens']>(
+    (state) => state.tokens
+    );
+    
   async function getAllPostagens(){
       await busca('/postagens', setPostagens, {
         headers:{
@@ -59,7 +62,7 @@ Postagem
 
 </Typography>
 <Typography variant="body2" component="p">
-  {postagem.tema?.id}
+  {postagem.tema?.descricao  }
 
 </Typography>
 </CardContent>
