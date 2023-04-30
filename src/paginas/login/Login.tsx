@@ -7,6 +7,7 @@ import {  login } from "../../services/Service";
 import UsuarioLogin from "../../models/UsuarioLogin";
 import { useDispatch } from "react-redux";
 import { addToken } from "../../store/tokens/actions";
+import { toast } from "react-toastify";
 
 
 
@@ -44,11 +45,29 @@ function Login() {
         event.preventDefault()
     try{
             await login ('/usuarios/logar', userLogin ,setToken) 
-            alert('Usuário logado com sucesso.') 
+            toast.success("Usuário Logado com sucesso!", {
+                position:"top-right",
+                autoClose: 2000,
+                hideProgressBar:false,
+                closeOnClick:true,
+                pauseOnHover:false,
+                draggable:false,
+                theme:"colored",
+                progress:undefined,
+              });
             
     }catch(error){
         console.log(error);
-        alert('Usuário ou senha inválido.')
+        toast.error("Usuário ou senha inválidos.", {
+            position:"top-right",
+            autoClose: 2000,
+            hideProgressBar:false,
+            closeOnClick:true,
+            pauseOnHover:false,
+            draggable:false,
+            theme:"colored",
+            progress:undefined,
+          });
             
 
     }

@@ -1,3 +1,40 @@
 .topo{
     margin-top:20px ;
+
+}
+
+.formulário{
+    
+}
+.Container{
+    display: flex;
+    margin:auto;
+    align-items: center;
+    
+}
+.botao{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+   
+}
+
+.formulário{
+
+        background-color: #ffffff !important;
+        margin:10%;
+        border-radius: 5%;
+        padding: 3%;    
+        align-items:center;
+}
+.formulário button{
+    align-self:center;
+    
+}
+.It{
+    margin-top: 2%;
+    width: 100%;
+    
+
 }

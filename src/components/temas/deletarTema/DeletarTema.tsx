@@ -1,12 +1,13 @@
 import { Card, CardContent, Typography, CardActions, Button } from '@material-ui/core'
-import { Box } from '@mui/material'
+import { Box, Grid } from '@mui/material'
 import React, { ChangeEvent, useEffect, useState } from 'react'
 import Tema from '../../../models/Tema';
-
+import './DeletarTema.css'
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { buscaId, deletarId } from '../../../services/Service';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
+import { toast } from 'react-toastify';
 
 function DeletarTema() {
     const history = useNavigate();
@@ -18,7 +19,16 @@ function DeletarTema() {
 
     useEffect(()=> {
         if(token ==  ""){
-            alert("Você precisa efetuar o Login")
+          toast.error("Você precisa estar logado!", {
+            position:"top-right",
+            autoClose: 2000,
+            hideProgressBar:false,
+            closeOnClick:true,
+            pauseOnHover:false,
+            draggable:false,
+            theme:"colored",
+            progress:undefined,
+          });
             history("/login")
         }
     }, [token])
@@ -44,7 +54,16 @@ function DeletarTema() {
           'Authorization': token
         }
       });
-      alert('Tema Deletado com sucesso!')
+      toast.success("Tema deletad com sucesso!", {
+        position:"top-right",
+        autoClose: 2000,
+        hideProgressBar:false,
+        closeOnClick:true,
+        pauseOnHover:false,
+        draggable:false,
+        theme:"colored",
+        progress:undefined,
+      });
     }
 
     function não(){
@@ -54,14 +73,14 @@ function DeletarTema() {
 
   return (
     <>
-    <Box m={2}>
+    <Grid className='centrinho' xs = {2}m={2}>
       <Card variant="outlined">
         <CardContent>
           <Box justifyContent="center">
-            <Typography color="textSecondary" gutterBottom>
+            <Typography color="textSecondary" variant='h6'  gutterBottom>
               Deseja deletar o Tema:
             </Typography>
-            <Typography color="textSecondary">
+            <Typography color="textSecondary" variant='h5' align='center'>
               {/* este é meu state. */}
               {tema?.descricao}
             </Typography>
@@ -76,14 +95,14 @@ function DeletarTema() {
             </Box>
             <Box mx={2}>
               <Button  
-              onClick={não} variant="contained" size='large' color="secondary">
+              onClick={não} variant="contained" size='large' className='botaoVermelho'>
                 Não
               </Button>
             </Box>
           </Box>
         </CardActions>
       </Card>
-    </Box>
+    </Grid>
     </>
 
   )

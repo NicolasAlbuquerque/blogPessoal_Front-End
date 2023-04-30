@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import './ListaTemas.css'
 import { Card, CardContent, Typography, CardActions, Button} from '@material-ui/core';
 import ListaPostagem from '../postagens/listapostagem/ListaPostagem';
-import { Box } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 import Tema from '../../../models/Tema'
 import { busca } from '../../../services/Service';
 import { useSelector } from 'react-redux';
@@ -49,7 +49,7 @@ return (
 
   {
     temas.map(tema=>(
-    <Box m={2} >
+    <Grid xs={2} m={2} >
     <Card variant="outlined">
     <CardContent>
     <Typography color="textSecondary" gutterBottom>
@@ -79,7 +79,7 @@ return (
     </Box>
     </CardActions>
     </Card>
-    </Box>
+    </Grid>
 ))}
 </>
 );

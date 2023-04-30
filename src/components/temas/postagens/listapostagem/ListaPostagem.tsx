@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
 import {Card, CardContent, Typography, CardActions, Button } from '@material-ui/core';
-import { Box } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 
 import Postagem from '../../../../models/Postagem';
 import { busca } from '../../../../services/Service';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../../store/tokens/tokensReducer';
+import { toast } from 'react-toastify';
 function ListaPostagem() {
 
 
@@ -33,7 +34,16 @@ function ListaPostagem() {
 
   useEffect(()=>{
     if(token === ''){
-      alert('Você precisa estar logado')
+      toast.error("Você precisa estar logado!", {
+        position:"top-right",
+        autoClose: 2000,
+        hideProgressBar:false,
+        closeOnClick:true,
+        pauseOnHover:false,
+        draggable:false,
+        theme:"colored",
+        progress:undefined,
+      });
     history("/login") 
   }
 
@@ -47,7 +57,7 @@ return (
 {
   postagens.map(postagem=>(
 
-<Box m={2} >
+<Grid className='posts'xs={2} m={2} >
 <Card variant="outlined">
 <CardContent>
 <Typography color="textSecondary" gutterBottom>
@@ -70,7 +80,7 @@ Postagem
 <Box display="flex" justifyContent="center" mb={1.5}>
 <Link to={`/formularioPostagem/${postagem.id}`} className="text-decorator-none" >
 <Box mx={1}>
-<Button variant="contained" className="marginLeft" size='small' >
+<Button variant="contained" color='primary'className="marginLeft" size='small' >
 atualizar
 </Button>
 </Box>
@@ -86,7 +96,7 @@ deletar
 
 </CardActions>
 </Card>
-</Box>
+</Grid>
 ))}
 
 </>)

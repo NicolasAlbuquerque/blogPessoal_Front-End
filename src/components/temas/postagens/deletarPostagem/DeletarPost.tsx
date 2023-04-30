@@ -12,6 +12,7 @@ import Postagem from '../../../../models/Postagem';
 import { buscaId, deletarId } from "../../../../services/Service";
 import { useSelector } from "react-redux";
 import { TokenState } from "../../../../store/tokens/tokensReducer";
+import { toast } from "react-toastify";
 
 function DeletarPost() {
   const history = useNavigate();
@@ -23,7 +24,16 @@ function DeletarPost() {
 
   useEffect(()=> {
       if(token ==  ""){
-          alert("Você precisa efetuar o Login")
+        toast.error("Você precisa estar logado!", {
+          position:"top-right",
+          autoClose: 2000,
+          hideProgressBar:false,
+          closeOnClick:true,
+          pauseOnHover:false,
+          draggable:false,
+          theme:"colored",
+          progress:undefined,
+        });
           history("/login")
       }
   }, [token])
@@ -49,7 +59,16 @@ function DeletarPost() {
         'Authorization': token
       }
     });
-    alert('Post Deletado com sucesso!')
+    toast.success("Postagem deletada com Sucesso", {
+      position:"top-right",
+      autoClose: 2000,
+      hideProgressBar:false,
+      closeOnClick:true,
+      pauseOnHover:false,
+      draggable:false,
+      theme:"colored",
+      progress:undefined,
+    });
   }
 
   function não(){
