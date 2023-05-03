@@ -185,7 +185,7 @@ export default function CadastroPost() {
                         }
                     >
                         {temas.map((tema) => (
-                            <MenuItem value={tema.id}>{tema.descricao}</MenuItem>
+                            <MenuItem className="block" value={tema.id}>{tema.descricao}</MenuItem>
                         ))}
                     </Select>
                     <FormHelperText>Escolha um tema para a postagem</FormHelperText>
